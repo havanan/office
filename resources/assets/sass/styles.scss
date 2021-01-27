@@ -1,0 +1,100 @@
+@import 'variables';
+.w-10 {
+    width: 10%;
+}
+.w-25 {
+    width: 25%;
+}
+.w-30 {
+    width: 30%;
+}
+.w-50 {
+    width: 50%;
+}
+.w-75 {
+    width: 75%;
+}
+.w-85 {
+    width: 85%;
+}
+.w-100 {
+    width: 100%;
+}
+.mt-10 {
+    margin-top: 10px;
+}
+table {
+    th.order {
+        width: 15px;
+    }
+    th.action-3 {
+        width: 140px;
+    }
+    th.action-2 {
+        width: 100px;
+    }
+    th.action-1 {
+        width: 60px;
+    }
+    th.w-150p {
+        width: 150px;
+    }
+    th.w-200p {
+        width: 200px;
+    }
+}
+.p-10 {
+    padding: 10px !important;
+  }
+h2 {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+span.required {
+    color: #f6504d;
+}
+
+.text-left {
+    text-align: left !important;
+}
+.card-title {
+    font-size: 16px;
+    font-weight: bold;
+}
+.text-bold {
+    font-weight: bold;
+}
+.stick-co {
+    color: $stick;
+}
+.read-co {
+    color: $read;
+}
+.unread-co {
+    color: $unread;
+}
+.pointer {
+    cursor: pointer;
+}
+.bg-gray {
+    background-color: $gray;
+}
+.unread {
+    font-weight: 600;
+    color: #444444;
+}
+.modal-scroll {
+    max-height: calc(100vh - 68px);
+    overflow-y: auto;
+}
+.pop-item{
+    position: fixed;z-index: 1; width: 20%
+}
+.lst-menu {
+    max-height: 500px;
+    overflow: auto;
+}
+.lesson-avt {
+    width: 90%;
+}

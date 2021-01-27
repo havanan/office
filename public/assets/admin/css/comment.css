@@ -1,0 +1,21 @@
+tr {
+    border-bottom: 6px solid white;
+}
+.icon-cmt:hover, i:hover{
+    color: #ff8a23;
+}
+.child {
+
+    padding-top: 10px;
+    border-top: 2px solid #B0AFAF;
+}
+.hide{
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 0.33s, opacity 0.33s linear;
+}
+.show{
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s;
+}
