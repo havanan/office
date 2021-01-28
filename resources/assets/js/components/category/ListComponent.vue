@@ -1,6 +1,6 @@
 <template>
  <div class="col-lg-12">
-    <h4 class="m-t-0 header-title"><b>Danh sách loại tin</b></h4>
+    <h4 class="m-t-0 header-title"><b>Danh sách loại sản phẩm</b></h4>
     <div class="row m-t-20">
         <div class="col-md-8">
             <button type="button" class="btn btn-success btn-sm" @click="showModal('create', {})"><i class="fa fa-plus"></i> Thêm</button>
@@ -16,7 +16,7 @@
                     <thead>
                     <tr>
                         <th class="order text-center">#</th>
-                        <th>Tên loại tin</th>
+                        <th>Loại sản phẩm</th>
                         <th>Trạng thái</th>
                         <th>Số bài viết</th>
                         <th class="created_at">Tạo lúc</th>
@@ -54,6 +54,7 @@
             </paginate>
             <Modal :passAction="action"
                    :passCategory="passCategory"
+                   :parentCat="parentCat"
                    @updateList="updateList"/>
         </div>
     </div>
@@ -68,6 +69,7 @@ export default {
     data() {
         return {
             categories: {},
+            parentCat: parentCat,
             pages: 0,
             currentPage: 1,
             action: 'create',
@@ -93,7 +95,7 @@ export default {
             const that = this;
             swal({
                 title: "Bạn chắc chắn chứ?",
-                text: "Loại tin " + category.name + " sẽ bị xóa khi bạn chấp nhận!",
+                text: "Loại sản phẩm " + category.name + " sẽ bị xóa khi bạn chấp nhận!",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
@@ -105,7 +107,7 @@ export default {
                         if(res.code === 200) {
                             swal({
                                 title: 'Thành công!',
-                                html: `Bạn đã xoá loại tin <b>${category.name}</b> thành công!`,
+                                html: `Bạn đã xoá loại sản phẩm <b>${category.name}</b> thành công!`,
                                 icon: 'success'
                             });
                             that.categories = res.data.items;

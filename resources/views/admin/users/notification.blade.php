@@ -1,4 +1,4 @@
-@extends('admin.layouts.admin')
+@extends('layouts.admin')
 @section('title', __('user.notification.title'))
 @section('content')
 <div class="container">

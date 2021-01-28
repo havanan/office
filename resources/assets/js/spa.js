@@ -31,6 +31,8 @@ window.Vue.component('category-component', require('./components/category/IndexC
 window.Vue.component('tag-component', require('./components/tag/IndexComponent.vue').default);
 window.Vue.component('news-component', require('./components/news/IndexComponent.vue').default);
 window.Vue.component('news-form-component', require('./components/news/FormComponent.vue').default);
+window.Vue.component('product-form-component', require('./components/product/FormComponent.vue').default);
+window.Vue.component('product-component', require('./components/product/IndexComponent.vue').default);
 window.Vue.component('feedback-component', require('./components/feedback/IndexComponent.vue').default);
 window.Vue.component('user-component', require('./components/users/IndexComponent.vue').default);
 window.Vue.component('v-select', vSelect);

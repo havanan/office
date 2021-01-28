@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 Route::group([
 
     'namespace'  => 'Admin',
-    'middleware' => ['web', 'auth']
 ], function() {
     Route::group(['prefix' => 'comment'], function() {
         Route::get('/', 'CommentController@getList');

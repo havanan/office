@@ -1,5 +1,5 @@
-@extends('admin.layouts.admin')
-@section('title', __('news.category.title'))
+@extends('layouts.admin')
+@section('title', 'Danh sách loại hàng')
 @section('content')
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
@@ -8,10 +8,9 @@
         </div>
     </div>
 @endsection
-
-
 @push('scripts')
     <script>
-        var statusGr = JSON.parse('<?php echo json_encode(CATEGORY_STATUS) ?>');
+        var statusGr = JSON.parse('<?php echo json_encode(\App\Helpers\Constants::CATEGORY_STATUS) ?>');
+        var parentCat = JSON.parse('<?php echo json_encode($categories) ?>');
     </script>
 @endpush

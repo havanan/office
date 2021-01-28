@@ -2,9 +2,9 @@
 
 namespace App\Repositories\News;
 
+use App\Helpers\Constants;
 use App\Models\Category;
 use App\Repositories\Base\BaseRepository;
-
 class CategoryRepository extends BaseRepository {
 
     public function __construct(Category $model) {
@@ -27,6 +27,9 @@ class CategoryRepository extends BaseRepository {
         return $this->_model->select('id','name')->get();
     }
     public function getActive(){
-        return $this->_model->where('status',CATEGORY_STATUS_ACTIVE)->select('id','name')->get()->toArray();
+        return $this->_model->where('status',Constants::CATEGORY_STATUS_ACTIVE)->select('id','name')->get()->toArray();
+    }
+    public function getParent(){
+        return $this->_model->where('status',Constants::CATEGORY_STATUS_ACTIVE)->where('parent_id',Constants::IS_PARENT)->select('id','name')->get()->toArray();
     }
 }

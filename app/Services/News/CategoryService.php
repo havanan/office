@@ -35,6 +35,9 @@ class CategoryService {
       return $this->model->getActive();
 
   }
+  public function getParent(){
+      return $this->model->getParent();
+  }
   public function delete($customerId){
 
       $this->model->delete($customerId);

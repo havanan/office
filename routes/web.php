@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
+use UniSharp\LaravelFilemanager\Lfm;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,7 +26,6 @@ Route::group([
     });
 });
 Auth::routes();
-
 Route::group([
     'prefix'     => 'mng',
     'namespace'  => 'Admin',
@@ -48,6 +47,11 @@ Route::group([
     Route::group([
         'middleware' => 'auth:admin'
     ],function (){
+        Route::group([
+            'prefix' => 'laravel-filemanager',
+        ], function () {
+            Lfm::routes();
+        });
         //Admin
         Route::get('/', 'DashboardController@index')->name('admin.dashboard.index');
         Route::post('logout', 'Auth/LoginController@logout')->name('admin.logout');

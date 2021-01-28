@@ -11,9 +11,9 @@
                     <a href="{{route('admin.customer.index')}}" class="waves-effect"><i class="fa fa-users"></i> <span> Khách hàng </span></a>
                 </li>
 
-                <li class="has_sub {{ (request()->is('comment*')) ? 'active' : '' }}">
-                    <a href="{{route('admin.comment.index')}}" class="waves-effect"><i class="md-comment"></i> <span> Bình luận </span></a>
-                </li>
+{{--                <li class="has_sub {{ (request()->is('comment*')) ? 'active' : '' }}">--}}
+{{--                    <a href="{{route('admin.comment.index')}}" class="waves-effect"><i class="md-comment"></i> <span> Bình luận </span></a>--}}
+{{--                </li>--}}
                 <li class="has_sub {{ request()->is('category*') || request()->is('product*') || request()->is('tag*') ? 'active' : '' }}">
                     <a href="javascript:void(0);" class="waves-effect"><i
                             class="fa fa-shopping-cart"></i><span>Sản phẩm </span> <span class="menu-arrow"></span></a>
@@ -22,7 +22,7 @@
                             <a href="{{route('admin.product.create')}}"><span><i class="fa fa-cart-plus m-r-5"></i> Đăng sản phẩm</span></a>
                         </li>
                         <li class="{{ (request()->is('news/index')) ? 'active' : '' }}">
-                            <a href="{{route('admin.news.index')}}"><span><i class="fa fa-hacker-news m-r-5"></i> Danh sách sản phẩm</span></a>
+                            <a href="{{route('admin.news.index')}}"><span><i class="fa fa-hacker-news m-r-5"></i> Danh sách</span></a>
                         </li>
                         <li class="{{ (request()->is('category*')) ? 'active' : '' }}">
                             <a href="{{route('admin.category.index')}}">
