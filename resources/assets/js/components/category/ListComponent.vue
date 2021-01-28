@@ -83,7 +83,7 @@ export default {
         fetchData: function(page = 1) {
             const that = this;
             that.currentPage = page;
-            axios.get('/admin/api/category?page=' + page).then(function(res) {
+            axios.get('/mng/api/category?page=' + page).then(function(res) {
                 that.categories = res.data.items;
                 that.pages = res.data.pages;
             });
@@ -102,7 +102,7 @@ export default {
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    axios.delete(`/admin/api/category/${category.id}`).then(function(res) {
+                    axios.delete(`/mng/api/category/${category.id}`).then(function(res) {
                         $('#lessonModal').modal('hide');
                         if(res.code === 200) {
                             swal({
@@ -127,7 +127,7 @@ export default {
         },
         search(value) {
             const that = this;
-            axios.get(`/admin/api/category?search=${value}`).then(function(res) {
+            axios.get(`/mng/api/category?search=${value}`).then(function(res) {
                 that.categories = res.data.items;
                 that.pages = res.data.pages;
             })

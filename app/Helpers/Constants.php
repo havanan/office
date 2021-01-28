@@ -11,7 +11,7 @@ class Constants
     const CATEGORY_STATUS_ACTIVE = 1;
 
     const CURRENT_PAGE = 1;
-
+    const PER_PAGE = 1;
     const CUSTOMER_STATUS = [
         0 => 'Đang khóa',
         1 => 'Đã kích hoạt'

@@ -1,6 +1,6 @@
 <?php
-namespace App\Http\Models;
-use App\Models\User;
+namespace App\Models;
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class LogAccess extends Model{

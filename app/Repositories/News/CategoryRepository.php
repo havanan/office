@@ -3,6 +3,7 @@
 namespace App\Repositories\News;
 
 use App\Helpers\Constants;
+use App\Helpers\Helpers;
 use App\Models\Category;
 use App\Repositories\Base\BaseRepository;
 class CategoryRepository extends BaseRepository {
@@ -19,7 +20,7 @@ class CategoryRepository extends BaseRepository {
                 $q->where('name','like','%'.$params['search'].'%');
             });
         }
-        $data = \paginate($data,$params['page']);
+        $data = Helpers::paginate($data,$params['page']);
         return $data;
     }
 

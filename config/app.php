@@ -176,6 +176,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         UniSharp\LaravelFilemanager\LaravelFilemanagerServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        App\Providers\HelperServiceProvider::class,
+
     ],
 
     /*
@@ -228,7 +230,9 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Image' => Intervention\Image\Facades\Image::class,
-        'Constants' => \App\Helpers\Constants::class
+        'Constants' => App\Helpers\Constants::class,
+        'Helper' => App\Helpers\Helpers::class,
+        'Responses' => App\Helpers\Responses::class
     ],
 
 ];

@@ -2157,7 +2157,7 @@ __webpack_require__.r(__webpack_exports__);
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
       var that = this;
       that.currentPage = page;
-      axios.get('/admin/api/category?page=' + page).then(function (res) {
+      axios.get('/mng/api/category?page=' + page).then(function (res) {
         that.categories = res.data.items;
         that.pages = res.data.pages;
       });
@@ -2175,7 +2175,7 @@ __webpack_require__.r(__webpack_exports__);
         dangerMode: true
       }).then(function (willDelete) {
         if (willDelete) {
-          axios["delete"]("/admin/api/category/".concat(category.id)).then(function (res) {
+          axios["delete"]("/mng/api/category/".concat(category.id)).then(function (res) {
             $('#lessonModal').modal('hide');
 
             if (res.code === 200) {
@@ -2200,7 +2200,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     search: function search(value) {
       var that = this;
-      axios.get("/admin/api/category?search=".concat(value)).then(function (res) {
+      axios.get("/mng/api/category?search=".concat(value)).then(function (res) {
         that.categories = res.data.items;
         that.pages = res.data.pages;
       });
@@ -5222,7 +5222,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ModalComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ModalComponent */ "./resources/assets/js/components/product/ModalComponent.vue");
+/* harmony import */ var _ModalComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ModalComponent */ "./resources/assets/js/components/product/ModalComponent.vue");
 //
 //
 //
@@ -5287,7 +5287,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    Modal: _ModalComponent__WEBPACK_IMPORTED_MODULE_1__["default"]
+    Modal: _ModalComponent__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
     return {
@@ -81644,7 +81644,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\office\resources\assets\js\spa.js */"./resources/assets/js/spa.js");
+module.exports = __webpack_require__(/*! D:\xampp\htdocs\office\resources\assets\js\spa.js */"./resources/assets/js/spa.js");
 
 
 /***/ })

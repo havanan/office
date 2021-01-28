@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware;
 
-use App\Http\Models\LogAccess;
+use App\Models\LogAccess;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
