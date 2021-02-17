@@ -14,7 +14,7 @@ class CategoryRepository extends BaseRepository {
     }
 
     public function getList($params) {
-        $data = $this->_model->with(['news'])->orderBy('created_at', 'DESC');
+        $data = $this->_model->with(['products'])->orderBy('created_at', 'DESC');
         if ($params['search']){
             $data = $data->where(function ($q) use ($params){
                 $q->where('name','like','%'.$params['search'].'%');

@@ -55,7 +55,18 @@ mix.sass('resources/assets/sass/styles.scss','public/assets/admin/css/styles.css
         'resources/assets/admin/plugins/select2/css/select2.min.css',
         'resources/assets/admin/plugins/voerro-vue-taginput/style.css',
         'public/assets/admin/css/styles.css',
-    ], 'public/assets/admin/css/admin.css');
+        'public/vendor/laravel-filemanager/css/mime-icons.min.css',
+        'public/vendor/laravel-filemanager/css/cropper.min.css',
+        'public/vendor/laravel-filemanager/css/dropzone.min.css',
+        'public/vendor/laravel-filemanager/css/lfm.css',
+    ], 'public/assets/admin/css/admin.css').version();
+mix.styles([
+    'public/vendor/laravel-filemanager/css/mime-icons.min.css',
+    'public/vendor/laravel-filemanager/css/cropper.min.css',
+    'public/vendor/laravel-filemanager/css/dropzone.min.css',
+    'public/vendor/laravel-filemanager/css/lfm.css',
+], 'public/assets/admin/css/lfm.css').version();
+
 mix.scripts(['resources/assets/admin/plugins/tinymce/tinymce.min.js'], 'public/assets/admin/plugins/tinymce/tinymce.min.js').version();
 mix.copy('resources/assets/admin/plugins/tinymce/plugins', 'public/assets/admin/plugins/tinymce/plugins');
 mix.copy('resources/assets/admin/plugins/tinymce/skins', 'public/assets/admin/plugins/tinymce/skins');

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Product;
+namespace App\Http\Controllers\Admin;
 
+use App\Helpers\Responses;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Customer\UpdateRequest;
 use App\Http\Requests\News\CreateCategoryRequest;
 use App\Http\Requests\News\UpdateCategoryRequest;
-use App\Services\News\CategoryService;
+use App\Services\Product\CategoryService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -40,7 +40,7 @@ class CategoryController extends Controller
      */
     public function getList(Request $request){
         $data = $this->_service->getList($request);
-        return \resSuccessData($data);
+        return  Responses::resSuccessData($data);
     }
 
     /**
@@ -60,9 +60,9 @@ class CategoryController extends Controller
         ];
         $create = $this->_service->create($params);
         if ($create){
-            return \resSuccessData($create);
+            return Responses::resSuccessData($create);
         }
-        return \resFail();
+        return Responses::resFail();
     }
 
     /**
@@ -84,9 +84,9 @@ class CategoryController extends Controller
         ];
         $update = $this->_service->update($id,$params);
         if ($update){
-            return \resSuccessData($update);
+            return Responses::resSuccessData($update);
         }
-        return \resFail();
+        return Responses::resFail();
     }
 
     /**
@@ -97,6 +97,6 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $data = $this->_service->delete($id);
-        return \resSuccessData($data);
+        return Responses::resSuccessData($data);
     }
 }

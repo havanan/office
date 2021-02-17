@@ -3,6 +3,7 @@
 namespace App\Services\Product;
 
 
+use App\Helpers\Constants;
 use App\Repositories\News\CategoryRepository;
 
 class CategoryService {
@@ -15,7 +16,7 @@ class CategoryService {
   public function getList($request = false) {
 
       $search = $request->search ?? '';
-      $page   = $request->page ?? CURRENT_PAGE;
+      $page   = $request->page ?? Constants::CURRENT_PAGE;
 
       $params = [
           'search' => $search,
@@ -55,6 +56,9 @@ class CategoryService {
         $this->model->updateById($customerId,$params);
 
         return $this->getList();
+    }
+    public function getParent(){
+        return $this->model->getParent();
     }
 }
 

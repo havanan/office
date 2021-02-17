@@ -35,17 +35,17 @@
                     <div class="col-lg-12">
 
                         <div class="form-group">
-                            <multiselect v-model="formData.categories"
+                            <multi-select v-model="formData.categories"
                                          :options="categories"
-                                         :multiple="true"
+                                         :multiple="false"
                                          :close-on-select="true"
                                          :clear-on-select="true"
                                          :preserve-search="true"
                                          :preselect-first="false"
                                          label="name" track-by="id"
                                          :custom-label="customLabel"
-                                         placeholder="Chọn một hoặc nhiều chuyên mục">
-                            </multiselect>
+                                         placeholder="Chọn chuyên mục">
+                            </multi-select>
                         </div>
                     </div>
                 </div>
@@ -82,11 +82,11 @@
         </div>
         <div class="col-lg-6">
             <div class="card-box">
-                <h4 class="m-t-0 m-b-20 header-title">Nội dung bài viết</h4>
+                <h4 class="m-t-0 m-b-20 header-title">Nội dung sản phẩm</h4>
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label class="control-label">Tiêu đề <span class="text-danger">*</span></label>
+                            <label class="control-label">Tên sản phẩm<span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="title" v-model="formData.title" id="title">
                         </div>
                         <div class="form-group">
@@ -110,12 +110,12 @@
         </div>
         <div class="col-md-3">
             <div class="form-group">
-                <p v-if="errors.length">
+                <template v-if="errors.length">
                     <b>Vui lòng kiểm tra lại các lỗi:</b>
-                <ul>
-                    <li v-for="error in errors" class="text-danger">{{ error }}</li>
-                </ul>
-                </p>
+                    <ul>
+                        <li v-for="error in errors" class="text-danger">{{ error }}</li>
+                    </ul>
+                </template>
             </div>
             <div class="form-group">
                 <div class="text-left">
@@ -127,15 +127,16 @@
 
     </form>
 </template>
+<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 
 <script>
     import TagsInput from '@voerro/vue-tagsinput';
-    import Multiselect from 'vue-multiselect';
+    import MultiSelect from 'vue-multiselect';
 
     export default {
         components: {
             TagsInput,
-            Multiselect
+            MultiSelect
         },
         data() {
             return {
@@ -156,7 +157,7 @@
                 timeRedirect:2000,
                 imagePath:'/storage/admin/images/no_image.png',
                 action:'create',
-                homePageUrl:'/news',
+                homePageUrl:'/product',
                 newsId: newsId,
             }
         },
@@ -168,7 +169,7 @@
                 switch (that.action){
 
                     case 'create':
-                        axios.post('/news/create',frm).then(function(res) {
+                        axios.post('/product/create',frm).then(function(res) {
                             swal({
                                 title: 'Thành công!',
                                 text: 'Bạn đã đăng bài thành công!',
@@ -186,7 +187,7 @@
                         });
                         break;
                     case 'edit':
-                        axios.put(`/news/update/${that.newsId}`,frm).then(function(res) {
+                        axios.put(`/product/update/${that.newsId}`,frm).then(function(res) {
 
                             swal({
                                 title: 'Thành công!',
@@ -241,7 +242,7 @@
             },
             findTags : function(value){
                 const that = this;
-                const link = '/admin/api/tag/find';
+                const link = '/mng/api/tag/find';
                 if(value){
                     link +='?search='+value;
                 }
@@ -256,7 +257,7 @@
             },
             initFileManager:function(){
                 this.$nextTick(function() {
-                    $('#lfm').filemanager('image');
+                    $('#lfm').filemanager('images');
                 });
             },
             redirectHome : function(time = false){
@@ -298,7 +299,7 @@
                     return false;
                 }
 
-                axios.get('/admin/api/news/find',{
+                axios.get('/mng/api/product/find',{
                     params:{
                         id:this.newsId
                     }

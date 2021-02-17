@@ -27,6 +27,12 @@ Route::group([
 });
 Auth::routes();
 Route::group([
+    'prefix' => 'laravel-filemanager',
+    'middleware' => ['web','auth:admin'],
+], function () {
+    Lfm::routes();
+});
+Route::group([
     'prefix'     => 'mng',
     'namespace'  => 'Admin',
     'middleware' => 'web',
@@ -48,13 +54,25 @@ Route::group([
         'middleware' => 'auth:admin'
     ],function (){
         Route::group([
-            'prefix' => 'laravel-filemanager',
-        ], function () {
-            Lfm::routes();
-        });
-        Route::group([
             'prefix' => 'api',
         ], function() {
+            Route::group([
+                'prefix' => 'tag',
+            ], function() {
+                Route::get('/',         'TagController@getList');
+                Route::get('find',      'TagController@find');
+                Route::post('/',        'TagController@store');
+                Route::put('/{id}',     'TagController@update');
+                Route::delete('/{id}',  'TagController@destroy');
+            });
+            Route::group([
+                'prefix' => 'category',
+            ], function() {
+                Route::get('/',         'CategoryController@getList');
+                Route::post('/',        'CategoryController@store');
+                Route::put('/{id}',     'CategoryController@update');
+                Route::delete('/{id}',  'CategoryController@destroy');
+            });
             Route::group(['prefix' => 'comment'], function() {
                 Route::get('/', 'CommentController@getList');
                 Route::get('/{id}/{status}', 'CommentController@updateStatus');
@@ -80,16 +98,6 @@ Route::group([
             Route::group([
                 'namespace' => 'News'
             ],function (){
-
-                Route::group([
-                    'prefix' => 'category',
-                ], function() {
-                    Route::get('/',         'CategoryController@getList');
-                    Route::post('/',        'CategoryController@store');
-                    Route::put('/{id}',     'CategoryController@update');
-                    Route::delete('/{id}',  'CategoryController@destroy');
-                });
-
                 Route::group([
                     'prefix' => 'news',
                 ], function() {
@@ -147,15 +155,14 @@ Route::group([
         ], function () {
             Route::get('/', 'ConfigController@index')->name('admin.config.index');
         });
-
+        Route::group([
+            'prefix' => 'category'
+        ], function () {
+            Route::get('/', 'CategoryController@index')->name('admin.category.index');
+        });
         Route::group([
             'namespace' => 'News'
         ], function () {
-            Route::group([
-                'prefix' => 'category'
-            ], function () {
-                Route::get('/', 'CategoryController@index')->name('admin.category.index');
-            });
             Route::group([
                 'prefix' => 'news'
             ], function () {
@@ -180,11 +187,6 @@ Route::group([
                 Route::get('/', 'ProductController@index')->name('admin.product.index');
                 Route::get('create', 'ProductController@create')->name('admin.product.create');
 
-            });
-            Route::group([
-                'prefix' => 'category'
-            ], function () {
-                Route::get('/', 'CategoryController@index')->name('admin.category.index');
             });
         });
     });

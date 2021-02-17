@@ -21,6 +21,7 @@
                                 <label>Loại s/phẩm cha</label>
                                 <select class="form-control" v-model="formData.parent_id" name="status" required
                                         :disabled="action === 'view'">
+                                    <option value="0">---> Sp cha</option>
                                     <option v-for="(parent,index) in parentCat"
                                             :key="parent.id"
                                             :value="parent.id"
@@ -86,7 +87,7 @@
                 const that = this;
                 switch (that.action) {
                     case 'create':
-                        axios.post('/admin/api/category', that.formData)
+                        axios.post('/mng/api/category', that.formData)
                             .catch(function (error) {
                                 if (error.response) {
                                     // Request made and server responded
@@ -123,7 +124,7 @@
                             );
                         break;
                     case 'edit':
-                        axios.put(`/admin/api/category/${that.category.id}`, that.formData).then(function (res) {
+                        axios.put(`/mng/api/category/${that.category.id}`, that.formData).then(function (res) {
                             $('#lessonModal').modal('hide');
                             if (res.code === 200) {
                                 swal({

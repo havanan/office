@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\News;
 
+use App\Helpers\Responses;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\News\CreateTagRequest;
 use App\Http\Requests\News\UpdateTagRequest;
@@ -21,11 +22,11 @@ class TagController extends Controller
 
     /**
      *
-     * @author  Anhv
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     *
      * @since 2020-31-07
      * @todo Hiển thị danh sách thẻ tag tức
-     * @return Màn hình danh sách
-     *
+     * @author  Anhv
      */
     public function index(){
         return  view('admin.tag.index');
@@ -43,7 +44,7 @@ class TagController extends Controller
 
         $data = $this->_service->getList($request);
 
-        return \resSuccessData($data);
+        return Responses::resSuccessData($data);
     }
     /**
      *
@@ -57,7 +58,7 @@ class TagController extends Controller
 
         $data = $this->_service->findTag($request);
 
-        return \resSuccessData($data);
+        return Responses::resSuccessData($data);
     }
     /**
      *
@@ -79,11 +80,11 @@ class TagController extends Controller
 
         if ($create){
 
-            return \resSuccessData($create);
+            return Responses::resSuccessData($create);
 
         }
 
-        return \resFail();
+        return Responses::resFail();
     }
 
     /**
@@ -106,11 +107,11 @@ class TagController extends Controller
 
         if ($update){
 
-            return \resSuccessData($update);
+            return Responses::resSuccessData($update);
 
         }
 
-        return \resFail();
+        return Responses::resFail();
     }
 
     /**
@@ -123,6 +124,6 @@ class TagController extends Controller
 
         $data = $this->_service->delete($id);
 
-        return \resSuccessData($data);
+        return Responses::resSuccessData($data);
     }
 }

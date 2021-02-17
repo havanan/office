@@ -5,6 +5,9 @@
         <product-form-component></product-form-component>
     </div>
 @endsection
+@push('styles')
+{{--    <link href="{{asset('assets/admin/css/lfm.css')}}" rel="stylesheet" type="text/css" />--}}
+@endpush
 @push('scripts')
     <script src="{{asset('assets/admin/plugins/tinymce/tinymce.min.js')}}"></script>
     <script src="{{asset('vendor/laravel-filemanager/js/stand-alone-button.js')}}"></script>
@@ -15,7 +18,7 @@
         $(document).ready(function () {
             if($(".editor").length > 0){
                 var editor_config = {
-                    path_absolute : "/admin/",
+                    path_absolute : "/",
                     selector: ".editor",
                     plugins: [
                         "advlist autolink lists link image charmap print preview hr anchor pagebreak",
@@ -51,8 +54,6 @@
 
                 $('form').parsley();
             }
-
-            // $('#lfm').filemanager('image');
         });
     </script>
 @endpush

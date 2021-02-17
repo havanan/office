@@ -10,7 +10,7 @@ class Category extends Model
     use SoftDeletes;
     protected $guarded = ['id'];
 
-    public function news(){
-        return $this->hasMany(NewsCategories::class,'category_id','id');
+    public function products(){
+        return $this->hasMany(Product::class,'category_id','id');
     }
 }
